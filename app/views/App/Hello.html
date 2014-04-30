@@ -5,14 +5,14 @@
   <div class="container">
     <div class="row">
       <div class="hero-text">
-        <h1>{{.greeting}}</h1>
+        <h1>Hello {{.myName}}</h1>
         <p>
         <form action="/App/Hello" method="GET">
           {{with $field := field "myName" .}}
             <input type="text" name="{{$field.Name}}" value="{{$field.Flash}}" /><br/>
           {{end}}
           <input type="submit" value="Say hello!" />
-        </form>
+      </form>
       </p>
       </div>
     </div>
