@@ -1,9 +1,9 @@
 package controllers
 
-func Index() {
+func Index() (string) {
     return "This is index"
 }
 
-func Coords() {
+func Coords() (string) {
     return "coords"
 }
