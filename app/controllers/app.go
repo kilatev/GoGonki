@@ -1,5 +1,9 @@
 package controllers
 
-func index() {
+func Index() {
+    return "This is index"
+}
 
+func Coords() {
+    return "coords"
 }
