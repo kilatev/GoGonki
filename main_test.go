@@ -10,11 +10,11 @@ import (
 )
 var _ = Describe("Todo", func() {
 
-    var (
-        body []byte
-        err error
-        //todos []Todo
-    )
+    // var (
+    //     body []byte
+    //     err error
+    //     //todos []Todo
+    // )
 
     Context("Get coords", func() {
         It("returns a 200 Status Code", func() {
