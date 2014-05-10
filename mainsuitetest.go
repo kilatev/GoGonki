@@ -4,12 +4,12 @@ import (
   . "github.com/onsi/ginkgo"
   . "github.com/onsi/gomega"
   "testing"
-    "io"
+    //"io"
   "net/http"
   "net/http/httptest"
     "github.com/codegangsta/martini"
     "github.com/codegangsta/martini-contrib/render"
-    "github.com/codegangsta/martini-contrib/binding"
+    //"github.com/codegangsta/martini-contrib/binding"
 
 )
 
