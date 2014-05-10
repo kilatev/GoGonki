@@ -33,6 +33,6 @@ func Coords() string {
     return "coords"
 }
 
-func Move(x int, y int) (Point) {
+func Move(x int, y int) (string) { // this is fake function for now. ToDo: change it to use actual Point
     return "fake"
 }
