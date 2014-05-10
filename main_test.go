@@ -22,6 +22,12 @@ var _ = Describe("Todo", func() {
             Expect(response.Code).To(Equal(200))
         })
     })
+    Context("Get coords", func() {
+        It("returns a 200 Status Code", func() {
+            Request("GET", "/coords", Coords)
+            Expect(response.Code).To(Equal(200))
+        })
+    })
 
     // Context("Create a Todo", func() {
 
