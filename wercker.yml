@@ -25,6 +25,6 @@ build:
 
     # Test the project
     - script:
-        name: go test
+        name: go test 
         code: |
-          go test ./...
+          go test -cover ./...
