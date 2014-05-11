@@ -33,6 +33,6 @@ func Coords() string {
     return "coords"
 }
 
-func Move(x int, y int) (string) { // this is fake function for now. ToDo: change it to use actual Point
-    return "fake"
+func Move(params martini.Params) (string) { // this is fake function for now. ToDo: change it to use actual Point
+    return "Hello " + params["x"] + params["y"]
 }
