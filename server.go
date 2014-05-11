@@ -15,6 +15,13 @@ type Car struct {
 	Point Point
 }
 
+type State struct {
+  X int `json: "x"`
+  Y int `json: "y"`
+  Crashed bool `json: "crashed"`
+  Speed int `json: "speed"`
+}
+
 func main() {
 	m := martini.Classic()
 	m.Get("/", Index)
@@ -38,6 +45,15 @@ func Move(params martini.Params) string { // this is fake function for now. ToDo
 	return "Hello " + params["x"] + params["y"]
 }
 
-func State(params martini.Params) string { // Todo: change return type to json
-	return "this is my state"
+func State(params martini.Params) string (result string) { // Todo: change return type to json
+  current_state := State()
+  serialized_state, err := json.Marshal(current_state)
+  if err != nil {
+    result = "{'status', 'failed'}"
+  }
+  else
+  {
+    result = string(jsonObj)
+  }
+	return 
 }
