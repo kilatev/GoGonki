@@ -22,6 +22,12 @@ type State struct {
   Speed int `json: "speed"`
 }
 
+type User struct {
+  Name string `json: "name"`
+  Email string `json: "email"`
+  Password string `json: "password"`
+}
+
 func main() {
 	m := martini.Classic()
 	m.Get("/", Index)
@@ -29,6 +35,9 @@ func main() {
 	m.Get("/coords", Coords)
 	m.Get("/move/:x/:y", Move) // ToDo: make this post reqeust
 	m.Get("/state", State)
+  m.Get("/account/profile", Profile)
+  m.Get("/account/login", Login)
+  m.Get("/account/logout", Logout)
 	m.Run()
 }
 
@@ -56,4 +65,19 @@ func State(params martini.Params) string (result string) { // Todo: change retur
     result = string(jsonObj)
   }
 	return 
+}
+
+func Profile(params martini.Params) string (result string) {
+  result = "Profile"
+  return
+}
+
+func Login(params martini.Params) string (result string) {
+  result = "Login"
+  return
+}
+
+func Logout(params martini.Params) string (result string) {
+  result = "Logout"
+  return
 }
