@@ -32,7 +32,7 @@ var _ = Describe("Todo", func() {
 
 	Context("Get state", func() {
 		It("returns a 200 Status Code", func() {
-			Request("GET", "/state", State)
+			Request("GET", "/state", GetState)
 			Expect(response.Code).To(Equal(200))
 		})
 	})
