@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/go-martini/martini"
 )
@@ -55,12 +56,12 @@ func Move(params martini.Params) string { // this is fake function for now. ToDo
 }
 
 func GetState(params martini.Params) (result string) { // Todo: change return type to json
-	current_state := State()
+	current_state := State{}
 	serialized_state, err := json.Marshal(current_state)
 	if err != nil {
-		result := "{'status', 'failed'}"
+		result = "{'status', 'failed'}"
 	} else {
-		result := string(jsonObj)
+		result = string(serialized_state)
 	}
 	return
 }
