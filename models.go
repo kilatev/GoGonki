@@ -1,4 +1,6 @@
-type Point struct {
+package main
+
+/*type Point struct {
   X int
   Y int
 }
@@ -6,4 +8,4 @@ type Point struct {
 type Car struct {
   Color int
   Point Point
-}
+}*/
