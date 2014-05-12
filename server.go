@@ -54,30 +54,30 @@ func Move(params martini.Params) string { // this is fake function for now. ToDo
 	return "Hello " + params["x"] + params["y"]
 }
 
-func State(params martini.Params) string (result string) { // Todo: change return type to json
-  current_state := State()
+func State(params martini.Params) ( string) { // Todo: change return type to json
+  string result;
+  current_state := State();
   serialized_state, err := json.Marshal(current_state)
   if err != nil {
-    result = "{'status', 'failed'}"
+    result := "{'status', 'failed'}"
   }
-  else
-  {
-    result = string(jsonObj)
+  else {
+    result := string(jsonObj)
   }
-	return 
+  return
 }
 
-func Profile(params martini.Params) string (result string) {
+func Profile(params martini.Params) (result string) {
   result = "Profile"
   return
 }
 
-func Login(params martini.Params) string (result string) {
+func Login(params martini.Params) (result string) {
   result = "Login"
   return
 }
 
-func Logout(params martini.Params) string (result string) {
+func Logout(params martini.Params) (result string) {
   result = "Logout"
   return
 }
