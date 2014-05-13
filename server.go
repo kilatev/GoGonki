@@ -1,9 +1,13 @@
 package main
 
 import (
+	"database/sql"
 	"encoding/json"
 	"fmt"
+	"github.com/coopernurse/gorp"
 	"github.com/go-martini/martini"
+	_ "github.com/mattn/go-sqlite3"
+	"log"
 )
 
 type Point struct {
@@ -16,6 +20,11 @@ type State struct {
 	Y       int  `json: "y"`
 	Crashed bool `json: "crashed"`
 	Speed   int  `json: "speed"`
+}
+
+type Road struct {
+	InnerRoad []Point
+	OuterRoad []Point
 }
 
 type Car struct {
