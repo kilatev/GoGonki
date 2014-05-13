@@ -11,16 +11,29 @@ type Point struct {
 	Y int
 }
 
-type Car struct {
-	Color int
-	Point Point
-}
-
 type State struct {
 	X       int  `json: "x"`
 	Y       int  `json: "y"`
 	Crashed bool `json: "crashed"`
 	Speed   int  `json: "speed"`
+}
+
+type Car struct {
+	Color int
+	Point Point
+	State State
+}
+
+func (c Car) MoveTo(point Point) Point {
+	c.Point = point
+	// ToDo: implement correct alghoritm with use of intesection
+	return c.Point
+}
+
+func (c Car) Status() State {
+	// ToDo: this should return summarized car's status at current time.
+	// probably it should contain coords, state, leadership
+	return c.State
 }
 
 type User struct {
