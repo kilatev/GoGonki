@@ -1,38 +1,11 @@
 package main
 
 import (
-	//	"database/sql"
 	"encoding/json"
-	//	"fmt"
 	"github.com/codegangsta/martini-contrib/binding"
-	//	"github.com/coopernurse/gorp"
 	"github.com/go-martini/martini"
-	//	_ "github.com/mattn/go-sqlite3"
 	"log"
 )
-
-type Point struct {
-	X int
-	Y int
-}
-
-type State struct {
-	X       int  `json: "x"`
-	Y       int  `json: "y"`
-	Crashed bool `json: "crashed"`
-	Speed   int  `json: "speed"`
-}
-
-type Road struct {
-	InnerRoad []Point
-	OuterRoad []Point
-}
-
-type Car struct {
-	Color int
-	Point Point
-	State State
-}
 
 func (c Car) MoveTo(point Point) Point {
 	c.Point = point
@@ -45,13 +18,6 @@ func (c Car) Status() State {
 	// ToDo: this should return summarized car's status at current time.
 	// probably it should contain coords, state, leadership
 	return c.State
-}
-
-type User struct {
-	Id       int64  `db: "id"`
-	Name     string `json: "name"`
-	Email    string `json: "email"`
-	Password string `json: "password"`
 }
 
 func (u User) GetRoom() string {
@@ -113,10 +79,5 @@ func Login(params martini.Params) (result string) {
 
 func Logout(params martini.Params) (result string) {
 	result = "Logout"
-	return
-}
-
-func CreateUser(user User) (result string) {
-	user.Save()
 	return
 }
