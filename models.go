@@ -7,27 +7,11 @@ import (
 	"log"
 )
 
-/*type Point struct {
-  X int
-  Y int
-}
-
-type Car struct {
-  Color int
-  Point Point
-}*/
-
 type User struct {
 	Id       int64  `db: "id"`
 	Name     string `json: "name"`
 	Email    string `json: "email"`
 	Password string `json: "password"`
-}
-
-func (u User) Save() {
-	dbmap := initDb()
-	defer dbmap.Db.Close()
-	dbmap.Insert(u)
 }
 
 type Point struct {
@@ -51,6 +35,34 @@ type Car struct {
 	Color int
 	Point Point
 	State State
+}
+
+func (u User) Save() {
+	dbmap := initDb()
+	defer dbmap.Db.Close()
+	dbmap.Insert(u)
+}
+
+func (c Car) MoveTo(point Point) Point {
+	c.Point = point
+	// ToDo: implement correct algorithm with use of intersection
+	// Assume collision detection done on client side for now
+	return c.Point
+}
+
+func (c Car) Status() State {
+	// ToDo: this should return summarized car's status at current time.
+	// probably it should contain coords, state, leadership
+	return c.State
+}
+
+func (u User) GetRoom() string {
+	// ToDo this should return users room data, or room itself.
+	return "room data"
+}
+
+func (u User) MoveToRoom() {
+	// ToDo: this will place user to new room
 }
 
 func initDb() *gorp.DbMap {
