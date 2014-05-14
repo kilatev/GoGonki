@@ -47,6 +47,7 @@ func (c Car) Status() State {
 }
 
 type User struct {
+	Id       int64  `db: "id"`
 	Name     string `json: "name"`
 	Email    string `json: "email"`
 	Password string `json: "password"`
@@ -118,4 +119,25 @@ func CreateUser(user User) User {
 	defer dbmap.Db.Close()
 
 	return
+}
+
+func initDb() *gorp.DbMap {
+	// connect to db using standard Go database/sql API
+	// use whatever database/sql driver you wish
+	db, err := sql.Open("sqlite3", "./tmp/post_db.bin")
+	checkErr(err, "sql.Open failed")
+
+	// construct a gorp DbMap
+	dbmap := &gorp.DbMap{Db: db, Dialect: gorp.SqliteDialect{}}
+
+	// add a table, setting the table name to 'posts' and
+	// specifying that the Id property is an auto incrementing PK
+	dbmap.AddTableWithName(Post{}, "posts").SetKeys(true, "Id")
+
+	// create the table. in a production system you'd generally
+	// use a migration tool, or create the tables via scripts
+	err = dbmap.CreateTablesIfNotExists()
+	checkErr(err, "Create tables failed")
+
+	return dbmap
 }
