@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"github.com/codegangsta/martini-contrib/binding"
 	"github.com/coopernurse/gorp"
 	"github.com/go-martini/martini"
 	_ "github.com/mattn/go-sqlite3"
@@ -35,7 +36,7 @@ type Car struct {
 
 func (c Car) MoveTo(point Point) Point {
 	c.Point = point
-	// ToDo: implement correct alghoritm with use of intesection
+	// ToDo: implement correct algorithm with use of intersection
 	return c.Point
 }
 
@@ -51,16 +52,26 @@ type User struct {
 	Password string `json: "password"`
 }
 
+func (u User) GetRoom() string {
+	// ToDo this should return users room data, or room itself.
+	return "room data"
+}
+
+func (u User) MoveToRoom() {
+	// ToDo: this will place user to new room
+}
+
 func main() {
 	m := martini.Classic()
 	m.Get("/", Index)
 
 	m.Get("/coords", Coords)
-	m.Get("/move/:x/:y", Move) // ToDo: make this post reqeust
+	m.Get("/move/:x/:y", Move) // ToDo: make this post request
 	m.Get("/state", GetState)
 	m.Get("/account/profile", Profile)
 	m.Get("/account/login", Login)
 	m.Get("/account/logout", Logout)
+	m.Post("/account/create", binding.Bind(User{}), CreateUser)
 	m.Run()
 }
 
@@ -73,7 +84,6 @@ func Coords() string {
 }
 
 func Move(params martini.Params) string { // this is fake function for now. ToDo: change it to use actual Point
-	fmt.Println("Scuka kruta")
 	return "Hello " + params["x"] + params["y"]
 }
 
@@ -100,5 +110,12 @@ func Login(params martini.Params) (result string) {
 
 func Logout(params martini.Params) (result string) {
 	result = "Logout"
+	return
+}
+
+func CreateUser(user User) User {
+	dbmap := initDb()
+	defer dbmap.Db.Close()
+
 	return
 }
