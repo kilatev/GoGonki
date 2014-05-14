@@ -1,13 +1,13 @@
 package main
 
 import (
-	"database/sql"
+//	"database/sql"
 	"encoding/json"
 //	"fmt"
-	"github.com/codegangsta/martini-contrib/binding"
+//	"github.com/codegangsta/martini-contrib/binding"
 	"github.com/coopernurse/gorp"
 	"github.com/go-martini/martini"
-	_ "github.com/mattn/go-sqlite3"
+//	_ "github.com/mattn/go-sqlite3"
 	"log"
 )
 
@@ -37,6 +37,7 @@ type Car struct {
 func (c Car) MoveTo(point Point) Point {
 	c.Point = point
 	// ToDo: implement correct algorithm with use of intersection
+	// Assume collision detection done on client side for now
 	return c.Point
 }
 
@@ -115,12 +116,6 @@ func Logout(params martini.Params) (result string) {
 	return
 }
 
-func CreateUser(user User) User {
-	dbmap := initDb()
-	defer dbmap.Db.Close()
-    user = User{}
-	return user
-}
 
 func initDb() *gorp.DbMap {
 	// connect to db using standard Go database/sql API
