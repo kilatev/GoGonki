@@ -40,7 +40,18 @@ type Car struct {
 func (u User) Save() {
 	dbmap := initDb()
 	defer dbmap.Db.Close()
-	dbmap.Insert(u)
+
+	err := dbmap.Insert(u)
+	checkErr(err, "User saving failed")
+}
+
+func (u User) Get(id int) User {
+	dbmap := initDb()
+	defer dbmap.Db.Close()
+	user := User{}
+	err := dbmap.SelectOne(&user, "Select * from users where id=?", id)
+	checkErr(err, "User is unreachable")
+	return user
 }
 
 func (c Car) MoveTo(point Point) Point {
