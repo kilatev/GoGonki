@@ -37,6 +37,11 @@ type Car struct {
 	State State
 }
 
+type Room struct {
+	room_id      int64
+	room_channel string
+}
+
 func (u User) Save() {
 	dbmap := initDb()
 	defer dbmap.Db.Close()
