@@ -5,6 +5,8 @@ import (
 	"github.com/coopernurse/gorp"
 	_ "github.com/mattn/go-sqlite3"
 	"log"
+	"math/rand"
+	"time"
 )
 
 type User struct {
@@ -49,7 +51,8 @@ func (r Room) NewRoom() (room Room) {
 }
 
 func (r Room) GenerateId() int64 {
-	return 1 // ToDo: random generate number
+    rand := rand.New(rand.NewSource(time.Now().UnixNano()))
+	return rand.Int63()
 }
 
 func (u User) Save() {
