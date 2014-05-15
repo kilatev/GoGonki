@@ -42,6 +42,16 @@ type Room struct {
 	room_channel string
 }
 
+func (r Room) NewRoom() (room Room){
+    room := Room{}
+    room.room_id := GenerateId()
+    return
+}
+
+func (r Room) GenerateId() int64{
+    return 1 // ToDo: random generate number
+}
+
 func (u User) Save() {
 	dbmap := initDb()
 	defer dbmap.Db.Close()
