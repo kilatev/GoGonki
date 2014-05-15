@@ -7,6 +7,8 @@ import (
 	"log"
 )
 
+var channels map[Room]chan int = make(map[Room]chan int)
+
 type User struct {
 	Id       int64  `db: "id"`
 	Name     string `json: "name"`
@@ -46,6 +48,11 @@ func (r Room) NewRoom() (room Room) {
 	room = Room{}
 	room.room_id = room.GenerateId()
 	return
+}
+
+func SendToRoom(room_id int64, car Car) {
+	ch := make(chan<- Car) // ToDo move channels to the channel dict or something
+	ch <- car
 }
 
 func (r Room) GenerateId() int64 {
