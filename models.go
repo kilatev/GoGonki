@@ -46,11 +46,11 @@ type Room struct {
 
 func (r Room) NewRoom() (room Room) {
 	room = Room{}
-	room.room_id = room.GenerateId()
+	room.room_id = GenerateId()
 	return
 }
 
-func (r Room) GenerateId() int64 {
+func GenerateId() int64 {
     rand := rand.New(rand.NewSource(time.Now().UnixNano()))
 	return rand.Int63()
 }
