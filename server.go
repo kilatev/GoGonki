@@ -16,5 +16,7 @@ func main() {
 	m.Get("/account/login", Login)
 	m.Get("/account/logout", Logout)
 	m.Post("/account/create", binding.Bind(User{}), CreateUser)
+
+	m.Use(Auth())
 	m.Run()
 }
