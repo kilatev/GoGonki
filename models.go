@@ -42,7 +42,7 @@ type Car struct {
 }
 
 type Room struct {
-	room_id      int64
+	room_id      int32
 	room_channel string
 }
 
@@ -57,8 +57,9 @@ func SendToRoom(room_id int64, car Car) {
 	ch <- car
 }
 
-func (r Room) GenerateId() int64 {
-	return 1 // ToDo: random generate number
+func (r Room) GenerateId() int32 {
+	rand.Seed(time.Now().UTC().UnixNano())
+    return rand.Int31()
 }
 
 func (u User) Save() {
