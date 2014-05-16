@@ -9,6 +9,8 @@ import (
 	"time"
 )
 
+var channels map[Room]chan int = make(map[Room]chan int)
+
 type User struct {
 	Id       int64  `db: "id"`
 	Name     string `json: "name"`
@@ -46,13 +48,17 @@ type Room struct {
 
 func (r Room) NewRoom() (room Room) {
 	room = Room{}
-	room.room_id = GenerateId()
+	room.room_id = room.GenerateId()
 	return
 }
 
-func GenerateId() int64 {
-    rand := rand.New(rand.NewSource(time.Now().UnixNano()))
-	return rand.Int63()
+func SendToRoom(room_id int64, car Car) {
+	ch := make(chan<- Car) // ToDo move channels to the channel dict or something
+	ch <- car
+}
+
+func (r Room) GenerateId() int64 {
+	return 1 // ToDo: random generate number
 }
 
 func (u User) Save() {
