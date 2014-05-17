@@ -41,6 +41,7 @@ func Profile(params martini.Params) (result string) {
 }
 
 func Login(params martini.Params) (result string) {
+	auth.Basic("username", "secretpassword")
 	result = "Login"
 	return
 }
