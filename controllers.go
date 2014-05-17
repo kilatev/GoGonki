@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/go-martini/martini"
 	"log"
+	"text/template"
 )
 
 func CreateUser(user User) (result string) {
