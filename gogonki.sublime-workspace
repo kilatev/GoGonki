@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"in",
+				"input"
+			],
+			[
 				"Ro",
 				"Room	struct ʈ"
 			],
@@ -52,75 +56,18 @@
 	"buffers":
 	[
 		{
-			"file": "server.go",
+			"file": "views/login.html",
 			"settings":
 			{
-				"buffer_size": 470,
+				"buffer_size": 577,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "middleware.go",
-			"settings":
-			{
-				"buffer_size": 99,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "models.go",
-			"settings":
-			{
-				"buffer_size": 2731,
-				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "controllers.go",
 			"settings":
 			{
-				"buffer_size": 1011,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Package Control Messages\n========================\n\nBetter CoffeeScript:\n-------------------\n\n  # Better CoffeeScript changelog\n  \n  ```\n  IF YOU SEE THIS MESSAGE\n  Because you have updated the plugin,\n  you might need to restart Sublime Text\n  if the syntax highlighter stopped working.\n  ```\n  \n  ## Version 2.1\n  \n  ### May 2014 Log\n  * Have been doing little improvements with the help of community\n  * Pull requests are always welcome and appreciated.\n  * Looking for active maintainer, will give pointers for development!!!\n  \n  \n  \n  ## Version 2.0\n  \n  Version 2.0 is out!\n  \n  ### Log:\n  * New written Watch Mode.\n  * Line number tracking in Watch Mode.\n  * Toggle 2 columns when enabling Watch Mode.\n  * It is possible to compile with sourcemaps.\n  * Compile litcofee files.\n  * Auto-indent after `else\\n`.\n  * and other bugs fixes.\n  \n  \n  \n",
-			"settings":
-			{
-				"buffer_size": 851,
-				"line_ending": "Windows",
-				"name": "Package Control Messages",
-				"scratch": true
-			}
-		},
-		{
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "main_test.go",
-			"settings":
-			{
-				"buffer_size": 2274,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "mainsuitetest.go",
-			"settings":
-			{
-				"buffer_size": 995,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/ozornins/AppData/Roaming/Sublime Text 3/Packages/GoSublime/USAGE.md",
-			"settings":
-			{
-				"buffer_size": 8539,
+				"buffer_size": 1028,
 				"line_ending": "Unix"
 			}
 		}
@@ -128,16 +75,24 @@
 	"build_system": "Packages/GoSublime/GoSublime.sublime-build",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 311.0,
 		"selected_items":
 		[
 			[
-				"set go",
-				"Set Syntax: Go"
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
 			],
 			[
 				"insta",
 				"Package Control: Install Package"
+			],
+			[
+				"set go",
+				"Set Syntax: Go"
 			],
 			[
 				"go",
@@ -148,16 +103,8 @@
 				"Package Control: List Packages"
 			],
 			[
-				"inst",
-				"Package Control: Install Package"
-			],
-			[
 				"xiki",
 				"Create Xiki Buffer"
-			],
-			[
-				"ins",
-				"Package Control: Install Package"
 			],
 			[
 				"disa",
@@ -216,7 +163,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 576.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -237,6 +184,14 @@
 	},
 	"file_history":
 	[
+		"/D/prj/gocode/src/GoGonki/views/App/Index.html",
+		"/C/Users/ozornins/AppData/Roaming/Sublime Text 3/Packages/GoSublime/USAGE.md",
+		"/D/prj/gocode/src/GoGonki/mainsuitetest.go",
+		"/D/prj/gocode/src/GoGonki/main_test.go",
+		"/D/prj/gocode/src/GoGonki/controllers.go",
+		"/D/prj/gocode/src/GoGonki/models.go",
+		"/D/prj/gocode/src/GoGonki/middleware.go",
+		"/D/prj/gocode/src/GoGonki/server.go",
 		"/C/Users/ozornins/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/ozornins/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/ozornins/AppData/Roaming/Sublime Text 3/Packages/GoSublime/README.md",
@@ -246,7 +201,6 @@
 		"/C/Users/ozornins/AppData/Roaming/Sublime Text 3/Packages/GoSublime/GoSublime.sublime-settings",
 		"/D/prj/gocode/src/GoGonki/.editorconfig",
 		"/D/prj/gotest/hello.go",
-		"/C/Users/ozornins/AppData/Roaming/Sublime Text 3/Packages/GoSublime/USAGE.md",
 		"/D/.ssh.pub",
 		"/D/prj/gotest/gotest.sublime-project",
 		"/D/.ssh",
@@ -317,158 +271,34 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "server.go",
+					"file": "views/login.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 470,
+						"buffer_size": 577,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								447,
-								447
+								248,
+								248
 							]
 						],
 						"settings":
 						{
 							"editorconfig": true,
 							"ensure_newline_at_eof_on_save": true,
-							"syntax": "Packages/GoSublime/syntax/GoSublime-Go.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true,
 							"trim_trailing_white_space_on_save": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "middleware.go",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 99,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								99,
-								99
-							]
-						],
-						"settings":
-						{
-							"editorconfig": true,
-							"ensure_newline_at_eof_on_save": true,
-							"syntax": "Packages/GoSublime/syntax/GoSublime-Go.tmLanguage",
-							"translate_tabs_to_spaces": true,
-							"trim_trailing_white_space_on_save": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "models.go",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2731,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								159,
-								159
-							]
-						],
-						"settings":
-						{
-							"editorconfig": true,
-							"ensure_newline_at_eof_on_save": true,
-							"syntax": "Packages/GoSublime/syntax/GoSublime-Go.tmLanguage",
-							"translate_tabs_to_spaces": true,
-							"trim_trailing_white_space_on_save": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "controllers.go",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1011,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								870,
-								870
-							]
-						],
-						"settings":
-						{
-							"editorconfig": true,
-							"ensure_newline_at_eof_on_save": true,
-							"syntax": "Packages/GoSublime/syntax/GoSublime-Go.tmLanguage",
-							"translate_tabs_to_spaces": true,
-							"trim_trailing_white_space_on_save": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 486.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 851,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								851,
-								851
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"word_wrap": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -478,78 +308,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 1,
+					"file": "controllers.go",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1028,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"default_dir": "D:\\prj\\gocode\\src\\GoGonki\\templates",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "main_test.go",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2274,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								663,
-								663
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/GoSublime/syntax/GoSublime-Go.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 337.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "mainsuitetest.go",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 995,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								49,
-								49
+								916,
+								916
 							]
 						],
 						"settings":
@@ -557,44 +329,14 @@
 							"editorconfig": true,
 							"ensure_newline_at_eof_on_save": true,
 							"syntax": "Packages/GoSublime/syntax/GoSublime-Go.tmLanguage",
-							"tab_size": 2,
 							"translate_tabs_to_spaces": true,
 							"trim_trailing_white_space_on_save": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 218.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "/C/Users/ozornins/AppData/Roaming/Sublime Text 3/Packages/GoSublime/USAGE.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8539,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 663.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
