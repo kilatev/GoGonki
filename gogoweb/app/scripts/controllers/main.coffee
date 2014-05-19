@@ -7,3 +7,5 @@ angular.module('yowebApp')
       'AngularJS'
       'Karma'
     ]
+  .controller 'LoginCtrl', ($scope) ->
+    $scope
