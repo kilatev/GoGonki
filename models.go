@@ -59,7 +59,7 @@ func SendToRoom(room_id int64, car Car) {
 
 func (r Room) GenerateId() int32 {
 	rand.Seed(time.Now().UTC().UnixNano())
-    return rand.Int31()
+	return rand.Int31()
 }
 
 func (u User) Save() {
@@ -75,6 +75,15 @@ func (u User) Get(id int) User {
 	defer dbmap.Db.Close()
 	user := User{}
 	err := dbmap.SelectOne(&user, "Select * from users where id=?", id)
+	checkErr(err, "User is unreachable")
+	return user
+}
+
+func (u User) GetByEmail(email string) User {
+	dbmap := initDb()
+	defer dbmap.Db.Close()
+	user := User{}
+	err := dbmap.SelectOne(&user, "Select * from users where email=?", email)
 	checkErr(err, "User is unreachable")
 	return user
 }
