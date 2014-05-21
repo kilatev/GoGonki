@@ -3,13 +3,19 @@ package main
 import (
 	"database/sql"
 	"github.com/coopernurse/gorp"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/lib/pq"
 	"log"
 	"math/rand"
 	"time"
 )
 
 var channels map[Room]chan int = make(map[Room]chan int)
+
+func SetupDB() *sql.DB {
+	db, err := sql.Open("postgres", "dbname=gogonki sslmode=disable")
+	PanicIf(err)
+	return db
+}
 
 type User struct {
 	Id       int64  `db: "id"`

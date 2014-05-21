@@ -7,6 +7,9 @@ import (
 
 func main() {
 	m := martini.Classic()
+	m.Map(SetupDB())
+	store := sessions.NewCookieStore([]byte("nonotestetstsst"))
+	m.Use(sessions.Sessions("gogonki", store))
 	m.Get("/", Index)
 
 	m.Get("/coords", Coords)
