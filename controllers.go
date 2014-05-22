@@ -3,8 +3,11 @@ package main
 import (
 	"encoding/json"
 	"github.com/go-martini/martini"
-	"github.com/martini-contrib/auth"
 	"log"
+  "code.google.com/p/go.crypto/bcrypt"
+	_ "github.com/lib/pq"
+	"database/sql"
+  "github.com/martini-contrib/sessions"
 	//"text/template"
 )
 
@@ -42,10 +45,17 @@ func Profile(params martini.Params) (result string) {
 	return
 }
 
-func Login(params martini.Params) (result string) {
-	auth.Basic("username", "secretpassword")
-	result = "Login"
-	return
+func Login(params martini.Params, db *sql.DB, s sessions.Session) (int, string) {
+  var userId int64
+  var dbPasswd string
+  email := params["email"]
+  password := params["password"]
+  err := db.QueryRow("select id, password from users where email=$1", email).Scan(&userId, &dbPasswd)
+  if err != nil || bcrypt.CompareHashAndPassword([]byte(dbPasswd), []byte(password)) != nil {
+		return 401, "Unauthorized"
+	}
+	s.Set("userId", userId)
+  return 200, "User id is " + string(userId)
 }
 
 func Logout(params martini.Params) (result string) {

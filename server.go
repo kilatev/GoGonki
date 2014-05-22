@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/codegangsta/martini-contrib/binding"
 	"github.com/go-martini/martini"
+  "github.com/martini-contrib/sessions"
 )
 
 func main() {

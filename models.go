@@ -17,6 +17,12 @@ func SetupDB() *sql.DB {
 	return db
 }
 
+func PanicIf(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
 type User struct {
 	Id       int64  `db: "id"`
 	Name     string `json: "name"`
