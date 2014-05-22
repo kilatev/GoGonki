@@ -11,7 +11,7 @@ stage.addChild(logo)
 requestAnimationFrame(animate)
 
 animate = ->
-    //logo.rotation += 0.05
+    #logo.rotation += 0.05
     if (logo.position.y <= 0 || logo.position.y >= 202)
       dY *= -1
     if (logo.position.x <= 0 || logo.position.x >= 302)
