@@ -11,7 +11,11 @@ var Login = React.createClass({
   render: function () {
     return (
         <div>
-          <p>Content for Login</p>
+          <form>
+            <input type="text"></input>
+            <input type="text"></input>
+            <input type="button"></input>
+          </form>
         </div>
       );
   }
