@@ -81,3 +81,7 @@ func Signup(rw http.ResponseWriter, r *http.Request, db *sql.DB) {
 
 	http.Redirect(rw, r, "/login", http.StatusFound)
 }
+
+func SignupForm(w http.ResponseWriter, r render.Render) {
+	r.HTML(200, "signup", "")
+}
