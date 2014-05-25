@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/codegangsta/martini-contrib/binding"
+	"github.com/codegangsta/martini-contrib/render"
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/sessions"
 )
@@ -11,6 +12,7 @@ func main() {
 	m.Map(SetupDB())
 	store := sessions.NewCookieStore([]byte("nonotestetstsst"))
 	m.Use(sessions.Sessions("gogonki", store))
+	m.Use(render.Renderer())
 	m.Get("/", Index)
 
 	m.Get("/coords", Coords)

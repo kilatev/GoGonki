@@ -4,12 +4,13 @@ import (
 	"code.google.com/p/go.crypto/bcrypt"
 	"database/sql"
 	"encoding/json"
+	"github.com/codegangsta/martini-contrib/render"
 	"github.com/go-martini/martini"
 	_ "github.com/lib/pq"
 	"github.com/martini-contrib/sessions"
 	"log"
 	"net/http"
-	"text/template"
+	//"text/template"
 )
 
 func CreateUser(user User) (result string) {
@@ -59,12 +60,8 @@ func Login(params martini.Params, db *sql.DB, s sessions.Session) (int, string) 
 	return 200, "User id is " + string(userId)
 }
 
-func LoginForm(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("views/login.html")
-	if err != nil {
-		panic("Bad template")
-	}
-	tmpl.Execute(w, "")
+func LoginForm(w http.ResponseWriter, r render.Render) {
+	r.HTML(200, "login", "")
 }
 
 func Logout(params martini.Params) (result string) {
