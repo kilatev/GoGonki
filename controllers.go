@@ -69,13 +69,16 @@ func Logout(params martini.Params) (result string) {
 	return
 }
 
-func Signup(rw http.ResponseWriter, r *http.Request, db *sql.DB) {
+func Signup(rw http.ResponseWriter, r *http.Request, db *gorp.DbMap) {
+
 	name, email, password := r.FormValue("name"), r.FormValue("email"), r.FormValue("password")
+	u := User{name, email, password}
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	PanicIf(err)
 
-	_, err = db.Exec("insert into users (name, email, password) values ($1, $2, $3)",
-		name, email, hashedPassword)
+	//_, err = db.Exec("insert into users (name, email, password) values ($1, $2, $3)",
+	err = db.Insert(&u)
+	//name, email, hashedPassword)
 
 	PanicIf(err)
 

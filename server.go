@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "code.google.com/p/go-sqlite/go1/sqlite3"
 	"github.com/codegangsta/martini-contrib/binding"
 	"github.com/codegangsta/martini-contrib/render"
 	"github.com/go-martini/martini"
@@ -9,7 +10,7 @@ import (
 
 func main() {
 	m := martini.Classic()
-	m.Map(SetupDB())
+	m.Map(initDb())
 	store := sessions.NewCookieStore([]byte("nonotestetstsst"))
 	m.Use(sessions.Sessions("gogonki", store))
 	m.Use(render.Renderer())
