@@ -10,7 +10,8 @@ import (
 
 func main() {
 	m := martini.Classic()
-	m.Map(initDb())
+	dbMap := initDb()
+	m.Map(dbMap)
 	store := sessions.NewCookieStore([]byte("nonotestetstsst"))
 	m.Use(sessions.Sessions("gogonki", store))
 	m.Use(render.Renderer())

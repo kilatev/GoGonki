@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"github.com/codegangsta/martini-contrib/render"
+	"github.com/coopernurse/gorp"
 	"github.com/go-martini/martini"
 	_ "github.com/lib/pq"
 	"github.com/martini-contrib/sessions"
@@ -72,9 +73,14 @@ func Logout(params martini.Params) (result string) {
 func Signup(rw http.ResponseWriter, r *http.Request, db *gorp.DbMap) {
 
 	name, email, password := r.FormValue("name"), r.FormValue("email"), r.FormValue("password")
-	u := User{name, email, password}
+
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	PanicIf(err)
+
+	u := User{
+		Name:     name,
+		Email:    email,
+		Password: hashedPassword}
 
 	//_, err = db.Exec("insert into users (name, email, password) values ($1, $2, $3)",
 	err = db.Insert(&u)

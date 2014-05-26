@@ -27,7 +27,7 @@ type User struct {
 	Id       int64  `db: "id"`
 	Name     string `json: "name"`
 	Email    string `json: "email"`
-	Password string `json: "password"`
+	Password []byte `json: "password"`
 }
 
 type Point struct {
