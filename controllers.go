@@ -2,7 +2,7 @@ package main
 
 import (
 	"code.google.com/p/go.crypto/bcrypt"
-	"database/sql"
+	//"database/sql"
 	"encoding/json"
 	"github.com/codegangsta/martini-contrib/render"
 	"github.com/coopernurse/gorp"
@@ -48,17 +48,18 @@ func Profile(params martini.Params) (result string) {
 	return
 }
 
-func Login(params martini.Params, db *sql.DB, s sessions.Session) (int, string) {
-	var userId int64
-	var dbPasswd string
+func Login(params martini.Params, db *gorp.DbMap, s sessions.Session) (int, string) {
+	user := User{}
 	email := params["email"]
 	password := params["password"]
-	err := db.QueryRow("select id, password from users where email=$1", email).Scan(&userId, &dbPasswd)
-	if err != nil || bcrypt.CompareHashAndPassword([]byte(dbPasswd), []byte(password)) != nil {
+	err := db.SelectOne(&user, "Select * from users where Email=? ", email)
+	log.Println(err)
+	//err := db.QueryRow("select id, password from users where email=$1", email).Scan(&userId, &dbPasswd)
+	if err != nil || bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password)) != nil {
 		return 401, "Unauthorized"
 	}
-	s.Set("userId", userId)
-	return 200, "User id is " + string(userId)
+	s.Set("userId", user.Id)
+	return 200, "User id is " + string(user.Id)
 }
 
 func LoginForm(w http.ResponseWriter, r render.Render) {
