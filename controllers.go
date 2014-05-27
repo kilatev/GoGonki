@@ -11,6 +11,7 @@ import (
 	"github.com/martini-contrib/sessions"
 	"log"
 	"net/http"
+  //"fmt"
 	//"text/template"
 )
 
@@ -52,8 +53,8 @@ func Login(params martini.Params, db *gorp.DbMap, s sessions.Session) (int, stri
 	user := User{}
 	email := params["email"]
 	password := params["password"]
-	err := db.SelectOne(&user, "Select * from users where Email=? ", email)
-	log.Println(err)
+	err := db.SelectOne(&user, "Select * from users where email=? ", email)
+  tmp_pass, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	//err := db.QueryRow("select id, password from users where email=$1", email).Scan(&userId, &dbPasswd)
 	if err != nil || bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password)) != nil {
 		return 401, "Unauthorized"
