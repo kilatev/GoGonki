@@ -49,17 +49,17 @@ func Profile(params martini.Params) (result string) {
 	return
 }
 
-func Login(r *http.Request, db *gorp.DbMap, s sessions.Session) (int, string) {
+func Login(r *http.Request, render render.Render, db *gorp.DbMap, s sessions.Session){
 	user := User{}
 	email, password := r.FormValue("email"), r.FormValue("password")
 	err := db.SelectOne(&user, "Select * from users where email=? ", email)
     //tmp_pass, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	//err := db.QueryRow("select id, password from users where email=$1", email).Scan(&userId, &dbPasswd)
 	if err != nil || bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password)) != nil {
-		return 401, "Unauthorized"
+		render.HTML(400, "404", "")
 	}
 	s.Set("userId", user.Id)
-	r.HTML(200, "dashboard", "")
+	render.HTML(200, "dashboard", "")
 }
 
 func LoginForm(w http.ResponseWriter, r render.Render) {
