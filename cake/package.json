@@ -33,6 +33,7 @@
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-clean": "~0.5.0",
     "react": "*",
+    "react-tools": "*",
     "react-addons": "*",
     "fb-flo": "*",
     "react-router-component": "*"

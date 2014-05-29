@@ -13,6 +13,8 @@ var server = flo(
     glob: [
        // All JS files in `sourceDirToWatch` and subdirectories
       '**/*.js',
+      '**/*.coffee',
+      '**/*.jsx',
        // All CSS files in `sourceDirToWatch` and subdirectories
       '**/*.css'
     ]
