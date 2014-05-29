@@ -2,12 +2,14 @@ var flo = require('fb-flo'),
     path = require('path'),
     fs = require('fs');
 
+var sourceDirToWatch = './src'
+
 var server = flo(
   sourceDirToWatch,
   {
     port: 8888,
     host: 'localhost',
-    verbose: false,
+    verbose: true,
     glob: [
        // All JS files in `sourceDirToWatch` and subdirectories
       '**/*.js',
