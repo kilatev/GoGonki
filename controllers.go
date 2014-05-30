@@ -95,3 +95,11 @@ func Signup(rw http.ResponseWriter, r *http.Request, db *gorp.DbMap) {
 func SignupForm(w http.ResponseWriter, r render.Render) {
 	r.HTML(200, "signup", "")
 }
+
+func CreateRoom(w http.ResponseWriter, r render.Render) string {
+	return "room id"
+}
+
+func ListRooms(w http.ResponseWriter, r render.Render) {
+	return "here be rooms list"
+}

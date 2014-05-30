@@ -27,6 +27,8 @@ func main() {
 	m.Post("/create", binding.Bind(User{}), CreateUser)
 	m.Get("/signup", SignupForm)
 	m.Post("/signup", Signup)
+	m.Post("/create-room", CreateRoom)
+	m.Post("/list-rooms", ListRooms)
 
 	//m.Use(Auth)
 	m.Run()
