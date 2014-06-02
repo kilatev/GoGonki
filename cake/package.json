@@ -24,6 +24,7 @@
     "react-tools": "*",
     "react-addons": "*",
     "fb-flo": "*",
-    "react-router-component": "*"
+    "react-router-component": "*",
+    "grapnel": "https://github.com/EngineeringMode/Grapnel.js/tarball/master"
   }
 }
