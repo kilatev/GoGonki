@@ -5,22 +5,22 @@ var Register = React.createClass({
     return (
       <table>
           <th>
-              <td></td>
+              <td>Room number</td>
           </th>
           <th>
-              <td></td>
+              <td>Room users count</td>
           </th>
           <th>
-              <td></td>
+              <td>free space</td>
           </th>
           <th>
-              <td></td>
+              <td>privacy</td>
           </th>
           <th>
-              <td></td>
+              <td>no idea</td>
           </th>
           <th>
-              <td></td>
+              <td><button>Join</button>></td>
           </th>
 
           <tr>
