@@ -58,6 +58,12 @@ type Room struct {
 	room_channel string
 }
 
+type Profile struct {
+	user User
+	won  int
+	lost int
+}
+
 func (r Room) NewRoom() (room Room) {
 	room = Room{}
 	room.room_id = room.GenerateId()
