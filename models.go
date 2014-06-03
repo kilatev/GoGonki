@@ -64,6 +64,11 @@ type Profile struct {
 	lost int
 }
 
+type Settings struct {
+	car_color int
+	
+}
+
 func (r Room) NewRoom() (room Room) {
 	room = Room{}
 	room.room_id = room.GenerateId()
