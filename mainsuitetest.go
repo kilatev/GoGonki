@@ -16,9 +16,9 @@ var (
 	response *httptest.ResponseRecorder
 )
 
-func TestMain(t *testing.T) {
+func TestGoGonki(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Main Suite")
+	RunSpecs(t, "GoGonki Suite")
 }
 
 func Request(method string, route string, handler martini.Handler) {
