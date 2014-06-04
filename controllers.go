@@ -44,9 +44,9 @@ func GetState(params martini.Params) (result string) { // Todo: change return ty
 	return
 }
 
-func Profile(params martini.Params) (result string) {
+func ShowProfile(params martini.Params) (result string) {
 	result = "Profile"
-	return
+	return result
 }
 
 func Login(r *http.Request, render render.Render, db *gorp.DbMap, s sessions.Session) {
@@ -100,6 +100,6 @@ func CreateRoom(w http.ResponseWriter, r render.Render) string {
 	return "room id"
 }
 
-func ListRooms(w http.ResponseWriter, r render.Render) {
+func ListRooms(w http.ResponseWriter, r render.Render) string {
 	return "here be rooms list"
 }

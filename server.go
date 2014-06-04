@@ -20,7 +20,7 @@ func main() {
 	m.Get("/coords", Coords)
 	m.Get("/move/:x/:y", Move) // ToDo: make this post request
 	m.Get("/state", GetState)
-	m.Get("/profile", Profile)
+	m.Get("/profile", ShowProfile)
 	m.Get("/login", LoginForm)
 	m.Post("/login", Login)
 	m.Get("/logout", Logout)

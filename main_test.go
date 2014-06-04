@@ -46,21 +46,21 @@ var _ = Describe("Todo", func() {
 
 	Context("Get profile data", func() {
 		It("returns a 200 Status Code", func() {
-			Request("GET", "/account/profile", Profile)
+			Request("GET", "/profile", ShowProfile)
 			Expect(response.Code).To(Equal(200))
 		})
 	})
 
 	Context("User can login to system", func() {
 		It("returns a 200 Status Code", func() {
-			Request("GET", "/account/login", Login)
+			Request("GET", "/login", Login)
 			Expect(response.Code).To(Equal(200))
 		})
 	})
 
 	Context("User can logout from system", func() {
 		It("returns a 200 Status Code", func() {
-			Request("GET", "/account/logout", Logout)
+			Request("GET", "/logout", Logout)
 			Expect(response.Code).To(Equal(200))
 		})
 	})
