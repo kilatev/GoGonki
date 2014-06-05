@@ -66,7 +66,6 @@ type Profile struct {
 
 type Settings struct {
 	car_color int
-	
 }
 
 func (r Room) NewRoom() (room Room) {
@@ -83,6 +82,22 @@ func SendToRoom(room_id int64, car Car) {
 func (r Room) GenerateId() int32 {
 	rand.Seed(time.Now().UTC().UnixNano())
 	return rand.Int31()
+}
+
+func (p Profile) Save() {
+	dbmap := initDb()
+	defer dbmap.Db.Close()
+
+	err := dbmap.Insert(p)
+	checkErr(err, "Profile saving failed")
+}
+
+func (c Car) Save() {
+	dbmap := initDb()
+	defer dbmap.Db.Close()
+
+	err := dbmap.Insert(c)
+	checkErr(err, "Car saving failed")
 }
 
 func (u User) Save() {
