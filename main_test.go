@@ -59,6 +59,14 @@ var _ = Describe("GoGonki", func() {
 		})
 	})
 
+	Context("User can signup to system", func() {
+		It("returns a 200 Status Code", func() {
+			Request("GET", "/signup", Login)
+			Expect(response.Code).To(Equal(200))
+			Expect(response.Body).To(Equal("dashboard"))
+		})
+	})
+
 	Context("User can logout from system", func() {
 		It("returns a 200 Status Code", func() {
 			Request("GET", "/logout", Logout)
