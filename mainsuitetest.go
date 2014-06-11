@@ -21,9 +21,9 @@ import (
 // 	RunSpecs(t, "GoGonki Suite")
 // }
 
-func Request(method string, route string, handler martini.Handler) {
+func Request(method string, route string, handler martini.Handler, data map[string]string) {
 	m := martini.Classic()
-	m.Get(route, handler)
+	m.Get(route, handler, data)
 	m.Use(render.Renderer())
 	request, _ := http.NewRequest(method, route, nil)
 	response = httptest.NewRecorder()
