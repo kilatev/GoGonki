@@ -55,7 +55,7 @@ var _ = Describe("GoGonki", func() {
 		It("returns a 200 Status Code", func() {
 			Request("GET", "/login", Login)
 			Expect(response.Code).To(Equal(200))
-			Expect(response.Body).To(Equal("dashboard"))
+			Expect(response.Body).Should(ContainSubstring("email"))
 		})
 	})
 
